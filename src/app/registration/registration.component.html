@@ -1,0 +1,22 @@
+<app-header></app-header>
+
+
+<div class="Login-Contaier">
+    <h2>Register Here</h2>
+    <br>
+    <form [formGroup]="regForm" (ngSubmit)="register()">
+        <input type="email" placeholder="Enter email" class="form-control" formControlName="email">
+        <div *ngIf="regForm.get('email')?.invalid && regForm.get('email')?.touched" class="text-danger">
+            <ng-container *ngIf="regForm.get('email')?.errors?.['required']">Email is required.</ng-container>
+            <ng-container *ngIf="regForm.get('email')?.errors?.['email']">Invalid email format.</ng-container>
+        </div>
+        <input type="password" placeholder="Enter Password" class="form-control" formControlName="password">
+        <div *ngIf="regForm.get('password')?.invalid && regForm.get('password')?.touched" class="text-danger">
+            <ng-container *ngIf="regForm.get('password')?.errors?.['required']">Password is
+                required.</ng-container>
+        </div>
+        <button type="submit" class="btn btn-success bbtn">Register</button>
+        <br>
+    </form>
+    <button type="button" class="btn btn-primary mt-3" routerLink="/">Login?</button>
+</div>

@@ -1,0 +1,22 @@
+<app-header></app-header>
+
+
+<div class="Login-Contaier">
+    <h2>Login Here</h2>
+    <br>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <input type="email" placeholder="Enter email" class="form-control" formControlName="email">
+        <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="text-danger">
+            <ng-container *ngIf="loginForm.get('email')?.errors?.['required']">Email is required.</ng-container>
+            <ng-container *ngIf="loginForm.get('email')?.errors?.['email']">Invalid email format.</ng-container>
+        </div>
+        <input type="password" placeholder="Enter Password" class="form-control" formControlName="password">
+        <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-danger">
+            <ng-container *ngIf="loginForm.get('password')?.errors?.['required']">Password is
+                required.</ng-container>
+        </div>
+        <button type="submit" class="btn btn-success bbtn">Login</button>
+        <br>
+    </form>
+    <button type="button" class="btn btn-primary mt-3" routerLink="/registration">Register?</button>
+</div>

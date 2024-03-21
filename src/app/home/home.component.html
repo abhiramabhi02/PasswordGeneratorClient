@@ -1,0 +1,26 @@
+<app-header></app-header>
+
+
+<div class="container">
+    <div class="main">
+        <form [formGroup]="passwordForm" (ngSubmit)="generate()">
+            
+            <label>Intensity of Password</label>
+            <select name="Intensity" class="form-control" id="Intensity" formControlName="intensity">
+                <option value="" disabled selected>Select a time slot</option>
+                <option value="normal">Normal</option>
+                <option value="medium">Medium</option>
+                <option value="strong">Strong</option>
+            </select>
+            <label class="form-label">Words to include</label>
+            <input type="text" class="form-control" formControlName="words">
+            <button type="submit" class="btn btn-dark">Generate</button>
+        </form>
+    </div>
+</div>
+
+<br><br><br>
+
+<div>
+  <app-password-table [dataSource]="data"></app-password-table>
+</div>
