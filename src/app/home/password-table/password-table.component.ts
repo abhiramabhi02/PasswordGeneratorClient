@@ -3,7 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 export interface passData {
   password: string;
-  position: number;
+  serialNumber: number;
   Date: string;
 }
 
@@ -28,23 +28,24 @@ export interface passData {
   styleUrls: ['./password-table.component.scss'],
 })
 export class PasswordTableComponent {
-  displayedColumns: string[] = ['position', 'password', 'Date'];
-  @Input() dataSource: object[] = []
+  displayedColumns: string[] = ['serialNumber', 'password', 'Date'];
+  @Input() dataSource: object[] = [];
 
-  constructor(private snackBar:MatSnackBar){}
+  constructor(private snackBar: MatSnackBar) {}
 
   copyPassword(password: string) {
-    // Use the Clipboard API to copy text to the clipboard
-    navigator.clipboard.writeText(password)
+    navigator.clipboard
+      .writeText(password)
       .then(() => {
-        // Success
-        this.snackBar.open('Password copied to clipboard', 'Close', { duration: 2000 });
+        this.snackBar.open('Password copied to clipboard', 'Close', {
+          duration: 2000,
+        });
       })
-      .catch(err => {
-        // Handle error
+      .catch((err) => {
         console.error('Failed to copy password: ', err);
-        this.snackBar.open('Failed to copy password', 'Close', { duration: 2000 });
+        this.snackBar.open('Failed to copy password', 'Close', {
+          duration: 2000,
+        });
       });
   }
-
 }

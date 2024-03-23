@@ -12,6 +12,7 @@ import { MaterialModule } from './material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { PasswordTableComponent } from './home/password-table/password-table.component';
+import { SerialNumberPipePipe } from './serial-number-pipe.pipe';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { PasswordTableComponent } from './home/password-table/password-table.com
     RegistrationComponent,
     HeaderComponent,
     HomeComponent,
-    PasswordTableComponent
+    PasswordTableComponent,
+    SerialNumberPipePipe
   ],
   imports: [
     BrowserModule,
